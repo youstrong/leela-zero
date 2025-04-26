@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"D:/opensource/leela-zero/autogtp/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

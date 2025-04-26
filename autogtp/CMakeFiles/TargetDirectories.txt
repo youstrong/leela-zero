@@ -1,0 +1,4 @@
+D:/opensource/leela-zero/autogtp/CMakeFiles/autogtp.dir
+D:/opensource/leela-zero/autogtp/CMakeFiles/INSTALL.dir
+D:/opensource/leela-zero/autogtp/CMakeFiles/ALL_BUILD.dir
+D:/opensource/leela-zero/autogtp/CMakeFiles/ZERO_CHECK.dir

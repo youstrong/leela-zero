@@ -1,18 +1,4 @@
-# This file is part of Leela Zero.
-# Copyright (C) 2017 Marco Calignano
-# Copyright (C) 2017-2019 Gian-Carlo Pascutto and contributors
-# Leela Zero is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-# Leela Zero is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-# You should have received a copy of the GNU General Public License
-# along with Leela Zero.  If not, see <http://www.gnu.org/licenses/>.
-
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.16)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 include(GNUInstallDirs)
@@ -47,7 +33,7 @@ if(USE_BLAS)
 else()
 message(STATUS "Using built-in matrix library.")
 endif()
-find_package(Qt5Core)
+find_package(Qt6Core)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED on)
@@ -117,12 +103,12 @@ target_link_libraries(leelaz ${ZLIB_LIBRARIES})
 target_link_libraries(leelaz ${CMAKE_THREAD_LIBS_INIT})
 install(TARGETS leelaz DESTINATION ${CMAKE_INSTALL_BINDIR})
 
-if(Qt5Core_FOUND)
-    if(NOT Qt5Core_VERSION VERSION_LESS "5.3.0")
+if(Qt6Core_FOUND)
+    if(NOT Qt6Core_VERSION VERSION_LESS "6.0.0")
         add_subdirectory(autogtp)
         add_subdirectory(validation)
     else()
-        message(WARNING "Qt ${Qt5Core_VERSION} is found but does not met required version 5.3.0, \
+        message(WARNING "Qt ${Qt6Core_VERSION} is found but does not met required version 6.0.0, \
         build target for `autogtp` and `validation` is disabled.")
     endif()
 else()

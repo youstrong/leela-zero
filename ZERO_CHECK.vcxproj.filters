@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\opensource\leela-zero\CMakeFiles\78a2d702d9087dc962dbbb9d986e773a\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{E43B8EA6-E200-3CD0-A244-EB16BD21EA9E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

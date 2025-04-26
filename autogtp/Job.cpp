@@ -34,7 +34,7 @@ void Job::init(const Order& o) {
     if (version_list.size() < 2) {
         QTextStream(stdout)
             << "Unexpected Leela Zero version: " << o.parameters()["leelazVer"]
-            << endl;
+            << "\n";
         exit(EXIT_FAILURE);
     }
     if (version_list.size() < 3) {
@@ -75,10 +75,10 @@ Result ProductionJob::execute() {
         }
         game.readMove();
         m_boss->incMoves();
-    } while (game.nextMove() && m_state.load() == RUNNING);
-    switch (m_state.load()) {
+    } while (game.nextMove() && m_state.loadAcquire() == RUNNING);
+    switch (m_state.loadAcquire()) {
         case RUNNING:
-            QTextStream(stdout) << "Game has ended." << endl;
+            QTextStream(stdout) << "Game has ended." << "\n";
             if (game.getScore()) {
                 game.writeSgf();
                 game.fixSgf(m_engine, false, true);
@@ -158,11 +158,11 @@ Result ValidationJob::execute() {
         m_boss->incMoves();
         gameOpponent->setMove("play " + *colorToMove + " "
                               + gameToMove->getMove());
-    } while (gameToMove->nextMove() && m_state.load() == RUNNING);
+    } while (gameToMove->nextMove() && m_state.loadAcquire() == RUNNING);
 
-    switch (m_state.load()) {
+    switch (m_state.loadAcquire()) {
         case RUNNING:
-            QTextStream(stdout) << "Game has ended." << endl;
+            QTextStream(stdout) << "Game has ended." << "\n";
             if (first.getScore()) {
                 res.add("score", first.getResult());
                 res.add("winner", first.getWinnerName());

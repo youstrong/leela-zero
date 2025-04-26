@@ -18,7 +18,7 @@
 #ifndef MANAGEMENT_H
 #define MANAGEMENT_H
 
-#include <QAtomicInt>
+#include <QAtomicInteger>
 #include <QFileInfo>
 #include <QLockFile>
 #include <QMutex>
@@ -64,7 +64,7 @@ private:
     int m_selfGames;
     int m_matchGames;
     int m_gamesPlayed;
-    QAtomicInt m_movesMade;
+    QAtomicInteger<int> m_movesMade;
     QString m_keepPath;
     QString m_debugPath;
     int m_version;

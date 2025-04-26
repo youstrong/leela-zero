@@ -19,7 +19,7 @@
 #ifndef JOB_H
 #define JOB_H
 
-#include <QAtomicInt>
+#include <QAtomicInteger>
 #include <QObject>
 #include <QTextStream>
 
@@ -46,14 +46,14 @@ public:
     virtual Result execute() = 0;
     virtual void init(const Order& o);
     void finish() {
-        m_state.store(FINISHING);
+        m_state.storeRelease(FINISHING);
     }
     void store() {
-        m_state.store(STORING);
+        m_state.storeRelease(STORING);
     }
 
 protected:
-    QAtomicInt m_state;
+    QAtomicInteger<int> m_state;
     QString m_gpu;
     int m_moves;
     VersionTuple m_leelazMinVersion;
